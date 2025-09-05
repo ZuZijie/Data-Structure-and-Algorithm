@@ -1,2 +1,16 @@
-# 忽略所有 Windows 可执行文件
-*.exe
+*
+!*/
+!.gitignore
+!*.c
+!*.cpp
+!*.h
+!*.hpp
+!*.py
+!*.java
+!*.js
+!*.ts
+!*.html
+!*.css
+!*.md
+!*.txt
+!README*

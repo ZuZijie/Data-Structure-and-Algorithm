@@ -108,7 +108,7 @@ Args:
 */
 _Bool ListInsert(Node *head, unsigned int index, DataType e)
 {   
-    if (head == NULL || index < 1) return false;
+    if (head == NULL) return false;
     
     Node* InsertPoint = head;
     

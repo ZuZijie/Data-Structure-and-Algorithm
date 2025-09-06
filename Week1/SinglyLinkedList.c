@@ -5,29 +5,13 @@
 #define true 1
 #define false 0
 
-
-/*
-Args:
-* head:pointer of the head node.
-Return:
-* True or false.
-Description:
-* Create an empty linked list with a head node.
-* The "next" field of the head node should point to NULL.
-*/
-
-typedef struct DataType
-{
-    int data;
-}DataType;
-//Define DataType
+#define DataType int
 
 typedef struct Node
 {
     struct Node* next;
     DataType data;
 }Node;
-//Define Node
 
 void PrintList(Node* head)
 {
@@ -41,9 +25,19 @@ void PrintList(Node* head)
         }
         printf("\n");
 }
+/*
+Args:
+* head:pointer of the head node.
+Return:
+* True or false.
+Description:
+* Create an empty linked list with a head node.
+* The "next" field of the head node should point to NULL.
+*/
 _Bool CreateEmptyList(Node** head)
 {
     *head = (Node*)malloc(sizeof(Node));
+    if(head == NULL) return false;
     (*head)->next = NULL;
     return true;
 }
@@ -70,7 +64,7 @@ _Bool CreateList(DataType *addr, unsigned int n, Node** head)
         if (addr != NULL) {
             newNode->data = addr[i];
         } else {
-            newNode->data.data=i; 
+            newNode->data=(DataType)i;
         }
         
         CurrentNode->next=newNode;
@@ -150,7 +144,7 @@ _Bool ListDelete(Node *head, unsigned int index, DataType* e)
     
     Node* NodeBeforeDeletePoint = head;
     
-    for(unsigned int i = 0; i < index; i++){
+    for( int i = 0; i < index; i++){
         NodeBeforeDeletePoint = NodeBeforeDeletePoint->next;
     }
     
@@ -162,41 +156,3 @@ _Bool ListDelete(Node *head, unsigned int index, DataType* e)
     
 	return true;
 }
-// int main(){
-//     int J;
-//     int input;
-//     scanf("%d",&J);
-//     Node* head = NULL; 
-    
-//     for(int j=0;j<J;j++){  
-//         scanf("%d",&input);
-//         if(input==1)CreateEmptyList(&head);
-//         if(input==2){
-//             CreateList(NULL,10,&head);
-//         }
-//         if(input==3){
-//             DataType InsertData;
-//             int InsertPosi;
-//             scanf("%d %d",&InsertPosi,&InsertData.data);
-//             ListInsert(head,InsertPosi,InsertData);
-//         }
-//         if(input==4){
-//             int DeletePosi;
-//             scanf("%d",&DeletePosi);
-//             DataType DeleteData;
-//             ListDelete(head,DeletePosi,&DeleteData);
-//                 printf("%d",DeleteData.data);
-//         }
-//         if(input==5){
-//             DestroyList(head);
-//             head = NULL;
-//         } 
-//         if(input==6){
-//             PrintList(head);
-//         }
-//     }
-
-//     if (head != NULL) {
-//         DestroyList(head);
-//     }
-// }

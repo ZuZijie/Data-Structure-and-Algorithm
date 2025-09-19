@@ -55,6 +55,7 @@ Description:
 */
 _Bool CreateList(DataType *addr, unsigned int n, Node** head)
 {
+    CreateEmptyList(head);
     Node* CurrentNode = *head;
     for(unsigned int i=0; i<n; i++){
         Node* newNode = malloc(sizeof(Node));
